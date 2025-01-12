@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
-    <title>Por Que Usar IA? | Boletim Informativo</title>
-    <meta name="description" content="IA descomplicada para trabalhadores e estudantes: Aumente sua produtividade sem esforço extra." />
-    <link rel="stylesheet" href="https://substackcdn.com/bundle/theme/welcome.ad0d153727931e2a3fe4.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtividade com IA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff; /* Azul clarinho */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        header {
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="email"] {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <div id="entry">
-        <div class="intro-popup">
-            <div class="intro-popup-page">
-                <div class="full-email-form">
-                    <div class="vertically-centered">
-                        <h1 class="publication-name">Por Que Usar IA?</h1>
-                        <p class="publication-tagline">IA descomplicada para trabalhadores e estudantes.</p>
-                        <div class="publication-meta">Por [Felipe M. de Freitas] · </div>
-                        <form action="/api/v1/free?nojs=true" method="post" novalidate class="form">
-                            <div class="sideBySideWrap">
-                                <div class="emailInputWrapper">
-                                    <input type="email" name="email" placeholder="Digite seu e-mail..." class="emailInput" />
-                                </div>
-                                <button type="submit" class="button subscribe-btn">Inscrever-se</button>
-                            </div>
-                        </form>
-                        <div class="tos-text">Ao se inscrever, concordo com os <a href="https://substack.com/tos"  rel="noopener noreferrer">Termos de Uso</a> e reconheço a <a href="https://substack.com/privacy"  rel="noopener noreferrer">Política de Privacidade</a>.</div>
-                    </div>
-                </div>
-            </div>
+    <header>
+        <h1>Produtividade com IA</h1>
+        <p>Descubra como a inteligência artificial pode facilitar seu dia a dia.</p>
+    </header>
+    <div class="container">
+        <form action="https://formsubmit.co/seu-email@gmail.com" method="POST">
+            <input type="email" name="email" placeholder="Digite seu e-mail..." required />
+            <button type="submit">Inscrever-se</button>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://seu-site.com/obrigado.html">
+        </form>
+        <div class="footer">
+            <p>Ao se inscrever, você concorda em receber nossos e-mails de conteúdo exclusivo.</p>
         </div>
     </div>
 </body>
