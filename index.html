@@ -14,12 +14,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             text-align: center;
             position: relative;
         }
         header {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            padding: 0 20px;
         }
         .container {
             background-color: #ffffff;
@@ -66,6 +66,8 @@
             color: #007BFF;
             font-size: 1.2em;
         }
+
+        /* Depoimentos e frases laterais */
         .sidebar {
             position: absolute;
             top: 20%;
@@ -83,6 +85,33 @@
             right: 10px;
             text-align: right;
         }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none; /* Esconde as laterais no celular */
+            }
+            header {
+                margin-bottom: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+
+        /* Adiciona os depoimentos abaixo do formulário no celular */
+        @media (max-width: 768px) {
+            .mobile-testimonials {
+                display: block;
+                margin-top: 20px;
+                color: #007BFF;
+                font-size: 0.9em;
+                line-height: 1.6;
+                text-align: center;
+            }
+        }
+
+        /* Estatísticas na parte inferior */
         .bottom-section {
             margin-top: 40px;
             text-align: center;
@@ -118,6 +147,7 @@
         <h1>Produtividade com IA</h1>
         <p>Descubra como a inteligência artificial pode facilitar seu dia a dia.</p>
     </header>
+    <!-- Depoimentos laterais (escondidos no celular) -->
     <div class="sidebar left">
         <p>💬 "A IA economizou horas preciosas no meu dia!" — João Silva</p>
         <p>💬 "Aprendi a usar ferramentas de IA para impulsionar meus negócios!" — Mariana Costa</p>
@@ -126,6 +156,7 @@
         <p>💬 "O futuro pertence àqueles que dominam a IA."</p>
         <p>💬 "Aprender IA hoje é investir no seu amanhã."</p>
     </div>
+
     <div class="container">
         <form action="https://formspree.io/f/xannavae" method="POST" onsubmit="handleSubmit(event)">
             <input type="email" name="email" placeholder="Digite seu e-mail..." required />
@@ -137,7 +168,15 @@
         <div class="footer">
             <p>Ao se inscrever, você concorda em receber nossos e-mails de conteúdo exclusivo.</p>
         </div>
+        <!-- Depoimentos aparecem aqui no celular -->
+        <div class="mobile-testimonials">
+            <p>💬 "A IA economizou horas preciosas no meu dia!" — João Silva</p>
+            <p>💬 "Aprendi a usar ferramentas de IA para impulsionar meus negócios!" — Mariana Costa</p>
+            <p>💬 "O futuro pertence àqueles que dominam a IA."</p>
+            <p>💬 "Aprender IA hoje é investir no seu amanhã."</p>
+        </div>
     </div>
+
     <div class="bottom-section">
         <div>📊 "80% das empresas estão adotando IA para aumentar sua produtividade."</div>
         <div>📊 "A inteligência artificial economiza 20 horas por semana em tarefas repetitivas."</div>
