@@ -58,7 +58,23 @@
             font-size: 0.9em;
             color: #555;
         }
+        .thank-you-message {
+            display: none;
+            margin-top: 20px;
+            color: #007BFF;
+            font-size: 1.2em;
+        }
     </style>
+    <script>
+        function showThankYouMessage(event) {
+            event.preventDefault();
+            const form = document.querySelector('form');
+            const thankYouMessage = document.querySelector('.thank-you-message');
+            form.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.textContent = "Obrigado por se inscrever! Em breve você receberá os melhores conteúdos de IA.";
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -66,11 +82,11 @@
         <p>Descubra como a inteligência artificial pode facilitar seu dia a dia.</p>
     </header>
     <div class="container">
-        <form action="https://formspree.io/f/xannavae" method="POST">
+        <form action="https://formspree.io/f/xannavae" method="POST" onsubmit="showThankYouMessage(event)">
             <input type="email" name="email" placeholder="Digite seu e-mail..." required />
-            <input type="hidden" name="_next" value="https://seu-site.com/obrigado.html">
             <button type="submit">Inscrever-se</button>
         </form>
+        <div class="thank-you-message"></div>
         <div class="footer">
             <p>Ao se inscrever, você concorda em receber nossos e-mails de conteúdo exclusivo.</p>
         </div>
