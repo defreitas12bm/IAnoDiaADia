@@ -19,7 +19,42 @@
         }
         header {
             margin-bottom: 20px;
-            padding: 0 20px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #f0f8ff, #e8f3fc); /* Gradiente suave */
+            border-radius: 8px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+        }
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            font-size: 2.5em; /* Aumentando o tamanho */
+            color: #007BFF; /* Azul para destaque */
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.5; /* Melhora a legibilidade */
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .container {
             background-color: #ffffff;
@@ -149,6 +184,7 @@
 </head>
 <body>
     <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/2917/2917990.png" alt="Ícone IA" width="50">
         <h1>Produtividade com IA</h1>
         <p>IA Descomplicada para Trabalhadores e Estudantes: Aumente Seus Resultados e Diminua Seu Esforço</p>
     </header>
