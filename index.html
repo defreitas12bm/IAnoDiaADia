@@ -4,124 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtividade com IA</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+    }
+    header {
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+    .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        width: 90%;
+        z-index: 1;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input[type="email"] {
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 100%;
+        max-width: 300px;
+    }
+    button {
+        padding: 12px 20px;
+        background-color: #007BFF;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #555;
+    }
+    .thank-you-message {
+        display: none;
+        margin-top: 20px;
+        color: #007BFF;
+        font-size: 1.2em;
+    }
+
+    /* Depoimentos e frases laterais */
+    .sidebar {
+        position: absolute;
+        top: 20%;
+        width: 200px;
+        color: #007BFF;
+        font-size: 1em;
+        line-height: 1.5;
+        z-index: 0;
+    }
+    .sidebar.left {
+        left: 10px;
+        text-align: left;
+    }
+    .sidebar.right {
+        right: 10px;
+        text-align: right;
+    }
+
+    /* Ajustes para telas menores */
+    @media (max-width: 768px) {
+        .sidebar {
+            display: none; /* Esconde as laterais no celular */
         }
         header {
-            margin-bottom: 20px;
-            padding: 0 20px;
+            margin-bottom: 10px;
         }
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
-            width: 90%;
-            z-index: 1;
+            padding: 20px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input[type="email"] {
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 100%;
-            max-width: 300px;
-        }
-        button {
-            padding: 12px 20px;
-            background-color: #007BFF;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .footer {
+    }
+
+    /* Adiciona os depoimentos abaixo do formulário no celular */
+    @media (max-width: 768px) {
+        .mobile-testimonials {
+            display: block;
             margin-top: 20px;
+            color: #007BFF;
             font-size: 0.9em;
-            color: #555;
-        }
-        .thank-you-message {
-            display: none;
-            margin-top: 20px;
-            color: #007BFF;
-            font-size: 1.2em;
-        }
-
-        /* Depoimentos e frases laterais */
-        .sidebar {
-            position: absolute;
-            top: 20%;
-            width: 200px;
-            color: #007BFF;
-            font-size: 1em;
-            line-height: 1.5;
-            z-index: 0;
-        }
-        .sidebar.left {
-            left: 10px;
-            text-align: left;
-        }
-        .sidebar.right {
-            right: 10px;
-            text-align: right;
-        }
-
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none; /* Esconde as laterais no celular */
-            }
-            header {
-                margin-bottom: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-
-        /* Adiciona os depoimentos abaixo do formulário no celular */
-        @media (max-width: 768px) {
-            .mobile-testimonials {
-                display: block;
-                margin-top: 20px;
-                color: #007BFF;
-                font-size: 0.9em;
-                line-height: 1.6;
-                text-align: center;
-            }
-        }
-
-        /* Estatísticas na parte inferior */
-        .bottom-section {
-            margin-top: 40px;
+            line-height: 1.6;
             text-align: center;
-            color: #333;
-            font-size: 1em;
         }
-        .bottom-section div {
-            margin: 10px 0;
-        }
-    </style>
+    }
+
+    /* Estatísticas na parte inferior */
+    .bottom-section {
+        margin-top: 40px;
+        text-align: center;
+        color: #333;
+        font-size: 1em;
+    }
+    .bottom-section div {
+        margin: 10px 0;
+    }
+
+    /* Estilo para o bloco de compartilhamento social */
+    .social-share {
+        margin-top: 20px;
+    }
+    .social-share img {
+        margin: 0 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .social-share img:hover {
+        transform: scale(1.1);
+    }
+</style>
+             
+ 
     <script>
         async function handleSubmit(event) {
             event.preventDefault();
