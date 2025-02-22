@@ -1,229 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtividade com IA</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-        header {
-            margin-bottom: 20px;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #f0f8ff, #e8f3fc); /* Gradiente suave */
-            border-radius: 8px; /* Bordas arredondadas */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-        }
-        header img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-        header h1 {
-            font-size: 2.5em; /* Aumentando o tamanho */
-            color: #007BFF; /* Azul para destaque */
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeIn 1s ease-out forwards;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #555;
-            margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.5; /* Melhora a legibilidade */
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeIn 1s ease-out forwards;
-            animation-delay: 0.5s;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
-            width: 90%;
-            z-index: 1;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input[type="email"] {
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 100%;
-            max-width: 300px;
-        }
-        button {
-            padding: 12px 20px;
-            background-color: #007BFF;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #555;
-        }
-        .thank-you-message {
-            display: none;
-            margin-top: 20px;
-            color: #007BFF;
-            font-size: 1.2em;
-        }
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none; /* Esconde as laterais no celular */
-            }
-            header {
-                margin-bottom: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-        /* Adiciona os depoimentos abaixo do formulário no celular */
-        @media (max-width: 768px) {
-            .mobile-testimonials {
-                display: block;
-                margin-top: 20px;
-                color: #007BFF;
-                font-size: 0.9em;
-                line-height: 1.6;
-                text-align: center;
-            }
-        }
-        /* Estatísticas na parte inferior */
-        .bottom-section {
-            margin-top: 40px; /* Distância do bloco anterior */
-            padding: 20px;
-            text-align: center;
-            background-color: #f8f9fa; /* Cor neutra para destacar as estatísticas */
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 1em;
-            color: #333;
-        }
-        .bottom-section h2 {
-            font-size: 1.5em;
-            color: #007BFF; /* Cor em destaque */
-            margin-bottom: 10px;
-        }
-        .bottom-section div {
-            margin: 10px 0;
-            font-size: 1em;
-            line-height: 1.5;
-        }
-        .bottom-section strong {
-            color: #0056b3; /* Destaque nos números */
-        }
-        /* Estilo para o bloco de compartilhamento social */
-        .social-share {
-            margin-top: 20px;
-        }
-        .social-share img {
-            margin: 0 5px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .social-share img:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtividade com IA - Transforme sua Vida Agora!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    header {
+      margin-bottom: 20px;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #f0f8ff, #e8f3fc); /* Gradiente suave */
+      border-radius: 8px; /* Bordas arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    }
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #007BFF;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 90%;
+      z-index: 1;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input[type="email"] {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 300px;
+    }
+    button, .whatsapp-btn {
+      padding: 12px 20px;
+      background-color: #007BFF;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: bold;
+    }
+    button:hover, .whatsapp-btn:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .thank-you-message {
+      display: none;
+      margin-top: 20px;
+      color: #007BFF;
+      font-size: 1.2em;
+    }
+    .social-share, .whatsapp-section {
+      margin-top: 20px;
+    }
+    .social-share img, .whatsapp-btn img {
+      margin: 0 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .social-share img:hover, .whatsapp-btn img:hover {
+      transform: scale(1.1);
+    }
+    /* Depoimentos na versão mobile */
+    .mobile-testimonials {
+      display: none;
+      margin-top: 20px;
+      color: #007BFF;
+      font-size: 0.9em;
+      line-height: 1.6;
+      text-align: center;
+    }
+    /* Estatísticas na parte inferior */
+    .bottom-section {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 1em;
+      color: #333;
+    }
+    .bottom-section h2 {
+      font-size: 1.5em;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+    .bottom-section div {
+      margin: 10px 0;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    .bottom-section strong {
+      color: #0056b3;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      header {
+        margin-bottom: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      .mobile-testimonials {
+        display: block;
+      }
+    }
+  </style>
+  <script>
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
 
-    <script>
-        async function handleSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-
-            await fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: {
-                    Accept: "application/json"
-                }
-            });
-
-            const thankYouMessage = document.querySelector('.thank-you-message');
-            thankYouMessage.style.display = 'block';
-            form.style.display = 'none';
+      await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: "application/json"
         }
-    </script>
+      });
+
+      const thankYouMessage = document.querySelector('.thank-you-message');
+      thankYouMessage.style.display = 'block';
+      form.style.display = 'none';
+    }
+  </script>
 </head>
 <body>
-    <header>
-       <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Ícone IA" width="50">
-        <h1>Produtividade com IA</h1>
-        <p>IA Descomplicada para Trabalhadores e Estudantes: Aumente Seus Resultados e Diminua Seu Esforço</p>
-    </header>
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Ícone IA" width="50">
+    <h1>Produtividade com IA</h1>
+    <p>Descubra como a IA pode potencializar seus resultados com técnicas avançadas e estratégias comprovadas. Oferta exclusiva para você!</p>
+  </header>
 
-    <div class="container">
-        <form action="https://formspree.io/f/xannavae" method="POST" onsubmit="handleSubmit(event)">
-            <input type="email" name="email" placeholder="Digite seu e-mail..." required />
-            <button type="submit">Inscrever-se</button>
-        </form>
-        <!-- Bloco de compartilhamento social -->
-        <div class="social-share">
-            <p>Compartilhe com seus amigos!</p>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://defreitas12bm.github.io/IAnoDiaADia" >
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Compartilhar no Facebook" width="32" height="32">
-            </a>
-            <a href="https://twitter.com/intent/tweet?url=https://defreitas12bm.github.io/IAnoDiaADia&text=Confira esta página incrível!" >
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Compartilhar no Twitter" width="32" height="32">
-            </a>
-        </div>
-        <div class="thank-you-message">
-            Obrigado por se inscrever! Em breve você receberá os melhores conteúdos de IA.
-        </div>
-        <div class="footer">
-            <p>Ao se inscrever, você concorda em receber nossos e-mails de conteúdo exclusivo.</p>
-        </div>
-        <!-- Depoimentos aparecem aqui no celular -->
-        <div class="mobile-testimonials">
-            <p>💬 "A IA economizou horas preciosas no meu dia!" — André Silva</p>
-            <p>💬 "Aprendi a usar ferramentas de IA para impulsionar meus negócios!" — Mariana Costa</p>
-            <p>💬 "O futuro pertence àqueles que dominam a IA." — Fernando Andrade</p>
-            <p>💬 "Aprender IA hoje é investir no seu amanhã." — Brenda Pereira</p>
-        </div>
-        <!-- Seção de Estatísticas -->
-        <div class="bottom-section">
-            <h2>Resultados que Falam por Si:</h2>
-            <div>🚀 Mais de <strong>10.000</strong> usuários transformaram suas rotinas com IA</div>
-            <div>💡 Redução média de <strong>30%</strong> no tempo gasto em tarefas repetitivas</div>
-            <div>📈 Produtividade aumentada em <strong>3x</strong> com soluções inteligentes</div>
-        </div>
+  <div class="container">
+    <form action="https://formspree.io/f/xannavae" method="POST" onsubmit="handleSubmit(event)">
+      <input type="email" name="email" placeholder="Digite seu e-mail..." required />
+      <button type="submit">Quero Saber Mais!</button>
+    </form>
+    
+    <!-- Botão de WhatsApp com Neuromarketing -->
+    <div class="whatsapp-section">
+      <p>Fale diretamente com nossos especialistas via WhatsApp e tire todas as suas dúvidas agora!</p>
+      <a class="whatsapp-btn" href="YOUR_WHATSAPP_LINK_AQUI" >
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="24" height="24">
+        Fale Conosco
+      </a>
     </div>
+
+    <!-- Bloco de compartilhamento social -->
+    <div class="social-share">
+      <p>Compartilhe essa transformação com seus amigos!</p>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://defreitas12bm.github.io/IAnoDiaADia" >
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Compartilhar no Facebook" width="32" height="32">
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://defreitas12bm.github.io/IAnoDiaADia&text=Confira esta página incrível!" >
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Compartilhar no Twitter" width="32" height="32">
+      </a>
+    </div>
+
+    <div class="thank-you-message">
+      Obrigado por se inscrever! Em instantes você receberá conteúdos exclusivos para transformar sua rotina com IA.
+    </div>
+
+    <div class="footer">
+      <p>Ao se inscrever, você concorda em receber nossos e-mails com conteúdos exclusivos. Aproveite essa chance única!</p>
+    </div>
+
+    <!-- Depoimentos mobile (Prova Social) -->
+    <div class="mobile-testimonials">
+      <p>💬 "A IA revolucionou minha forma de trabalhar - resultados impressionantes!" — André Silva</p>
+      <p>💬 "Ferramentas de IA que realmente fazem a diferença no meu negócio." — Mariana Costa</p>
+      <p>💬 "Senti a mudança na produtividade desde o primeiro dia!" — Fernando Andrade</p>
+      <p>💬 "Investir em IA foi a melhor decisão para meu futuro." — Brenda Pereira</p>
+    </div>
+
+    <!-- Seção de Estatísticas Impactantes -->
+    <div class="bottom-section">
+      <h2>Resultados Incríveis:</h2>
+      <div>🚀 Mais de <strong>10.000</strong> usuários já transformaram suas rotinas com IA</div>
+      <div>💡 Redução média de <strong>30%</strong> no tempo gasto em tarefas repetitivas</div>
+      <div>📈 Produtividade aumentada em <strong>3x</strong> com soluções inteligentes</div>
+    </div>
+  </div>
 </body>
 </html>
