@@ -1,542 +1,456 @@
-import React from "react";
-import { motion } from "framer-motion";
-import {
-  Bot,
-  BrainCircuit,
-  Zap,
-  ShieldCheck,
-  Workflow,
-  MessageSquare,
-  Check,
-  ArrowRight,
-  Building2,
-  Clock,
-  Database,
-  Globe2,
-  TrendingUp,
-  Users,
-  Lock,
-  Sparkles,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPERA AI - Funcionários Digitais</title>
 
-const BRAND = {
-  name: "OPERA AI",
-  whatsapp: "5594999807821",
-};
+  <script src="https://cdn.tailwindcss.com"></script>
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
+  <style>
+    body {
+      background: #030712;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-const features = [
-  {
-    icon: MessageSquare,
-    title: "Atendimento 24/7",
-    text: "Responda clientes, qualifique leads e reduza filas automaticamente.",
-  },
-  {
-    icon: Database,
-    title: "Base de conhecimento",
-    text: "Treine agentes com PDFs, FAQs, planilhas, documentos e processos internos.",
-  },
-  {
-    icon: Workflow,
-    title: "Automação operacional",
-    text: "Envie e-mails, salve leads, abra tickets, gere relatórios e acione sistemas.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Controle empresarial",
-    text: "Defina permissões, limites, histórico, logs e regras para cada agente.",
-  },
-];
+    .gradient-bg {
+      background:
+        radial-gradient(circle at top right, rgba(59,130,246,0.35), transparent 35%),
+        radial-gradient(circle at top left, rgba(124,58,237,0.28), transparent 32%),
+        #030712;
+    }
 
-const useCases = [
-  "Agente de vendas",
-  "Agente de suporte",
-  "Agente financeiro",
-  "Agente de onboarding",
-  "Agente de operações",
-  "Agente para WhatsApp",
-];
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
 
-const stats = [
-  { value: "24/7", label: "operação contínua" },
-  { value: "10x", label: "mais velocidade" },
-  { value: "0", label: "código necessário" },
-];
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      padding: 16px 26px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
 
-const plans = [
-  {
-    name: "Starter",
-    price: "R$197",
-    description: "Para validar automação em um processo.",
-    items: [
-      "1 agente de IA",
-      "1.000 mensagens/mês",
-      "Upload de documentos",
-      "Dashboard básico",
-      "Suporte inicial",
-    ],
-    cta: "Começar agora",
-    featured: false,
-  },
-  {
-    name: "Pro",
-    price: "R$497",
-    description: "Para empresas que querem escalar atendimento e vendas.",
-    items: [
-      "5 agentes de IA",
-      "10.000 mensagens/mês",
-      "Integrações",
-      "Histórico completo",
-      "Automações avançadas",
-    ],
-    cta: "Escalar com IA",
-    featured: true,
-  },
-  {
-    name: "Business",
-    price: "R$1497",
-    description: "Para operações com múltiplos times, canais e processos.",
-    items: [
-      "Agentes ilimitados",
-      "WhatsApp e CRM",
-      "API empresarial",
-      "Analytics avançado",
-      "Suporte prioritário",
-    ],
-    cta: "Falar com vendas",
-    featured: false,
-  },
-];
+    .btn-blue {
+      background: #3b82f6;
+      color: white;
+    }
 
-export default function OperaAILandingPage() {
-  return (
-    <main className="min-h-screen overflow-hidden bg-[#030712] text-white">
-      <section className="relative px-6 py-6 lg:px-12">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.35),transparent_35%),radial-gradient(circle_at_top_left,rgba(124,58,237,0.28),transparent_32%)]" />
+    .btn-blue:hover {
+      background: #60a5fa;
+    }
 
-        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-xl">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 shadow-lg shadow-blue-500/30">
-              <BrainCircuit className="h-6 w-6" />
-            </div>
-            <span className="text-xl font-black tracking-tight">
-              {BRAND.name}
-            </span>
+    .btn-white {
+      background: white;
+      color: #020617;
+    }
+
+    .btn-white:hover {
+      background: #dbeafe;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="min-h-screen overflow-hidden gradient-bg">
+
+    <!-- NAVBAR -->
+    <section class="px-6 py-6 lg:px-12">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl glass px-5 py-4">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 shadow-lg">
+            🧠
           </div>
-
-          <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-            <a href="#solucao" className="hover:text-white">
-              Solução
-            </a>
-            <a href="#casos" className="hover:text-white">
-              Casos de uso
-            </a>
-            <a href="#precos" className="hover:text-white">
-              Preços
-            </a>
-          </div>
-
-          <a
-            href={`https://wa.me/${BRAND.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="rounded-xl bg-white text-slate-950 hover:bg-blue-100">
-              Falar no WhatsApp
-            </Button>
-          </a>
-        </nav>
-
-        <div className="mx-auto grid max-w-7xl items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
-          <motion.div {...fadeUp}>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
-              <Zap className="h-4 w-4" />
-              Reduza custos operacionais e escale sem contratar
-            </div>
-
-            <h1 className="max-w-4xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
-              Substitua tarefas operacionais por agentes de IA.
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-              Automatize atendimento, vendas e operações com funcionários
-              digitais que trabalham 24 horas por dia, aprendem com seus dados e
-              executam processos reais.
-            </p>
-
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={`https://wa.me/${BRAND.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="rounded-2xl bg-blue-500 px-7 py-6 text-base hover:bg-blue-400"
-                >
-                  Automatizar minha operação
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-
-              <a href="#precos">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl border-white/15 bg-white/5 px-7 py-6 text-base text-white hover:bg-white/10"
-                >
-                  Ver planos
-                </Button>
-              </a>
-            </div>
-
-            <div className="mt-8 grid max-w-xl grid-cols-3 gap-4 text-sm text-slate-400">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <strong className="block text-2xl text-white">
-                    {stat.value}
-                  </strong>
-                  {stat.label}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeUp} className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-blue-500/20 blur-3xl" />
-
-            <Card className="relative rounded-[2rem] border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl">
-              <CardContent className="p-6 md:p-8">
-                <div className="mb-6 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-slate-400">Funcionário digital</p>
-                    <h3 className="text-2xl font-bold text-white">
-                      Nina • Vendas IA
-                    </h3>
-                  </div>
-                  <div className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm text-emerald-300">
-                    Online
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="rounded-2xl bg-slate-950/60 p-4">
-                    <p className="text-sm text-slate-400">Lead recebido</p>
-                    <p className="mt-1 text-white">
-                      “Quero saber valores para automatizar minha empresa.”
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-blue-500/20 p-4">
-                    <p className="text-sm text-blue-200">Resposta da IA</p>
-                    <p className="mt-1 text-white">
-                      Perfeito. Quantas pessoas existem hoje na sua operação e
-                      qual canal recebe mais demandas?
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-2xl bg-white/5 p-4">
-                      <Clock className="mb-3 h-5 w-5 text-blue-300" />
-                      <p className="text-sm text-slate-400">Tempo médio</p>
-                      <p className="text-xl font-bold text-white">1.8s</p>
-                    </div>
-
-                    <div className="rounded-2xl bg-white/5 p-4">
-                      <TrendingUp className="mb-3 h-5 w-5 text-purple-300" />
-                      <p className="text-sm text-slate-400">Leads qualificados</p>
-                      <p className="text-xl font-bold text-white">347</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          <span class="text-xl font-black tracking-tight">OPERA AI</span>
         </div>
-      </section>
 
-      <section className="border-y border-white/10 bg-white/[0.03] px-6 py-14 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-5 text-center md:grid-cols-3">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <Users className="mx-auto mb-3 h-7 w-7 text-blue-300" />
-            <strong className="block text-3xl font-black">+120</strong>
-            <span className="text-slate-400">operações automatizadas</span>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <MessageSquare className="mx-auto mb-3 h-7 w-7 text-blue-300" />
-            <strong className="block text-3xl font-black">+1M</strong>
-            <span className="text-slate-400">mensagens processadas</span>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <Lock className="mx-auto mb-3 h-7 w-7 text-blue-300" />
-            <strong className="block text-3xl font-black">Enterprise</strong>
-            <span className="text-slate-400">controle, segurança e escala</span>
-          </div>
+        <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+          <a href="#solucao" class="hover:text-white">Solução</a>
+          <a href="#casos" class="hover:text-white">Casos de uso</a>
+          <a href="#precos" class="hover:text-white">Preços</a>
         </div>
-      </section>
 
-      <section className="border-b border-white/10 bg-white/[0.03] px-6 py-16 lg:px-12">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-blue-300">
-            O problema
+        <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-white">
+          Falar no WhatsApp
+        </a>
+      </nav>
+
+      <!-- HERO -->
+      <div class="mx-auto grid max-w-7xl items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
+            ⚡ Reduza custos operacionais e escale sem contratar
+          </div>
+
+          <h1 class="max-w-4xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
+            Substitua tarefas operacionais por agentes de IA.
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
+            Automatize atendimento, vendas e operações com funcionários digitais que trabalham 24 horas por dia, aprendem com seus dados e executam processos reais.
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            Empresas perdem dinheiro em tarefas manuais.
-          </h2>
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-blue">
+              Automatizar minha operação →
+            </a>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-300">
-            Atendimento lento, leads ignorados, processos repetitivos e equipes
-            sobrecarregadas. A {BRAND.name} transforma tarefas em sistemas
-            autônomos.
-          </p>
-        </div>
-      </section>
-
-      <section id="solucao" className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-blue-300">
-              A solução
-            </p>
-
-            <h2 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-              Crie agentes que conversam, decidem e executam.
-            </h2>
+            <a href="#precos" class="btn glass">
+              Ver planos
+            </a>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <Card
-                key={feature.title}
-                className="rounded-3xl border-white/10 bg-white/[0.06] text-white"
-              >
-                <CardContent className="p-6">
-                  <feature.icon className="mb-6 h-8 w-8 text-blue-300" />
-                  <h3 className="text-xl font-bold">{feature.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-300">
-                    {feature.text}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          <div class="mt-8 grid max-w-xl grid-cols-3 gap-4 text-sm text-slate-400">
+            <div>
+              <strong class="block text-2xl text-white">24/7</strong>
+              operação contínua
+            </div>
+            <div>
+              <strong class="block text-2xl text-white">10x</strong>
+              mais velocidade
+            </div>
+            <div>
+              <strong class="block text-2xl text-white">0</strong>
+              código necessário
+            </div>
           </div>
         </div>
-      </section>
 
-      <section id="casos" className="px-6 py-20 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-blue-300">
-              Casos de uso
-            </p>
+        <!-- CARD DEMO -->
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-[2rem] bg-blue-500/20 blur-3xl"></div>
 
-            <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              Um sistema operacional para funcionários digitais.
-            </h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-300">
-              Comece por atendimento e vendas. Depois expanda para financeiro,
-              operações, onboarding, suporte interno e análise de dados.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {useCases.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-5"
-              >
-                <div className="rounded-xl bg-blue-500/15 p-2">
-                  <Bot className="h-5 w-5 text-blue-300" />
-                </div>
-                <span className="font-semibold">{item}</span>
+          <div class="relative rounded-[2rem] glass p-6 md:p-8 shadow-2xl">
+            <div class="mb-6 flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-400">Funcionário digital</p>
+                <h3 class="text-2xl font-bold text-white">Nina • Vendas IA</h3>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div class="rounded-full bg-emerald-400/15 px-3 py-1 text-sm text-emerald-300">
+                Online
+              </div>
+            </div>
 
-      <section className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-600/25 to-purple-600/20 p-8 md:p-12">
-          <div className="grid gap-10 lg:grid-cols-3">
-            {["Crie", "Treine", "Automatize"].map((step, index) => (
-              <div key={step}>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white font-black text-slate-950">
-                  {index + 1}
-                </div>
+            <div class="space-y-4">
+              <div class="rounded-2xl bg-slate-950/60 p-4">
+                <p class="text-sm text-slate-400">Lead recebido</p>
+                <p class="mt-1 text-white">“Quero saber valores para automatizar minha empresa.”</p>
+              </div>
 
-                <h3 className="text-2xl font-bold">{step}</h3>
-
-                <p className="mt-3 leading-7 text-slate-300">
-                  {index === 0 &&
-                    "Defina função, personalidade, objetivos e limites do agente em poucos minutos."}
-                  {index === 1 &&
-                    "Conecte documentos, base de conhecimento, CRM e canais para dar contexto real."}
-                  {index === 2 &&
-                    "Coloque o agente para responder, qualificar, executar tarefas e gerar relatórios."}
+              <div class="rounded-2xl bg-blue-500/20 p-4">
+                <p class="text-sm text-blue-200">Resposta da IA</p>
+                <p class="mt-1 text-white">
+                  Perfeito. Quantas pessoas existem hoje na sua operação e qual canal recebe mais demandas?
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-5xl rounded-[2rem] border border-red-400/20 bg-red-500/10 p-8 text-center backdrop-blur-xl md:p-12">
-          <Sparkles className="mx-auto mb-5 h-10 w-10 text-red-300" />
-
-          <h2 className="text-4xl font-black md:text-5xl">
-            Quanto sua empresa perde por mês fazendo manualmente o que uma IA
-            poderia executar?
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
-            Cada lead sem resposta, cada atendimento atrasado e cada tarefa
-            repetitiva custa margem, tempo e crescimento.
-          </p>
-        </div>
-      </section>
-
-      <section id="precos" className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-blue-300">
-            Preços
-          </p>
-
-          <h2 className="mt-4 text-4xl font-black md:text-6xl">
-            Comece pequeno. Escale como infraestrutura.
-          </h2>
-        </div>
-
-        <div className="mx-auto mt-12 grid max-w-7xl gap-6 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`rounded-[2rem] border text-white ${
-                plan.featured
-                  ? "border-blue-400 bg-blue-500/15 shadow-2xl shadow-blue-500/20"
-                  : "border-white/10 bg-white/[0.05]"
-              }`}
-            >
-              <CardContent className="p-8">
-                {plan.featured && (
-                  <div className="mb-5 inline-flex rounded-full bg-blue-400 px-3 py-1 text-sm font-bold text-slate-950">
-                    Mais vendido
-                  </div>
-                )}
-
-                <h3 className="text-2xl font-bold">{plan.name}</h3>
-
-                <p className="mt-3 text-slate-300">{plan.description}</p>
-
-                <div className="mt-7 flex items-end gap-1">
-                  <span className="text-5xl font-black">{plan.price}</span>
-                  <span className="mb-2 text-slate-400">/mês</span>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm text-slate-400">Tempo médio</p>
+                  <p class="text-xl font-bold text-white">1.8s</p>
                 </div>
 
-                <div className="mt-8 space-y-4">
-                  {plan.items.map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-emerald-300" />
-                      <span className="text-slate-200">{item}</span>
-                    </div>
-                  ))}
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm text-slate-400">Leads qualificados</p>
+                  <p class="text-xl font-bold text-white">347</p>
                 </div>
-
-                <a
-                  href={`https://wa.me/${BRAND.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    className={`mt-8 w-full rounded-2xl py-6 ${
-                      plan.featured
-                        ? "bg-blue-400 text-slate-950 hover:bg-blue-300"
-                        : "bg-white text-slate-950 hover:bg-blue-100"
-                    }`}
-                  >
-                    {plan.cta}
-                  </Button>
-                </a>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-5xl text-center">
-          <Globe2 className="mx-auto mb-6 h-12 w-12 text-blue-300" />
-
-          <h2 className="text-4xl font-black md:text-6xl">
-            O próximo funcionário da sua empresa será IA.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Automatize atendimento, vendas e operações com agentes inteligentes.
-            Construa uma empresa mais rápida, enxuta e escalável.
-          </p>
-
-          <a
-            href={`https://wa.me/${BRAND.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              size="lg"
-              className="mt-9 rounded-2xl bg-blue-500 px-8 py-6 text-base hover:bg-blue-400"
-            >
-              Criar meu funcionário IA
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </a>
-        </div>
-      </section>
-
-      <section className="px-6 pb-10 lg:px-12">
-        <div className="mx-auto max-w-5xl rounded-[2rem] border border-green-400/20 bg-green-500/10 p-8 text-center backdrop-blur-xl">
-          <h3 className="text-3xl font-black text-white md:text-4xl">
-            Fale diretamente no WhatsApp
-          </h3>
-
-          <p className="mt-4 text-lg text-slate-300">
-            Tire dúvidas, veja demonstrações e implemente agentes de IA na sua
-            empresa.
-          </p>
-
-          <a
-            href={`https://wa.me/${BRAND.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-bold text-white shadow-lg shadow-green-500/30 transition hover:bg-green-400"
-          >
-            WhatsApp: +55 94 99980-7821
-          </a>
-        </div>
-      </section>
-
-      <footer className="border-t border-white/10 px-6 py-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-slate-400 md:flex-row">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              </div>
             </div>
-            <span className="font-semibold text-white">{BRAND.name}</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section class="border-y border-white/10 bg-white/[0.03] px-6 py-14 lg:px-12">
+      <div class="mx-auto grid max-w-7xl gap-5 text-center md:grid-cols-3">
+        <div class="rounded-3xl glass p-6">
+          <strong class="block text-3xl font-black">+120</strong>
+          <span class="text-slate-400">operações automatizadas</span>
+        </div>
+
+        <div class="rounded-3xl glass p-6">
+          <strong class="block text-3xl font-black">+1M</strong>
+          <span class="text-slate-400">mensagens processadas</span>
+        </div>
+
+        <div class="rounded-3xl glass p-6">
+          <strong class="block text-3xl font-black">Enterprise</strong>
+          <span class="text-slate-400">controle, segurança e escala</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="border-b border-white/10 bg-white/[0.03] px-6 py-16 lg:px-12">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="text-sm uppercase tracking-[0.35em] text-blue-300">O problema</p>
+
+        <h2 class="mt-4 text-3xl font-bold md:text-5xl">
+          Empresas perdem dinheiro em tarefas manuais.
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-3xl text-lg text-slate-300">
+          Atendimento lento, leads ignorados, processos repetitivos e equipes sobrecarregadas. A OPERA AI transforma tarefas em sistemas autônomos.
+        </p>
+      </div>
+    </section>
+
+    <!-- SOLUÇÃO -->
+    <section id="solucao" class="px-6 py-20 lg:px-12">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 max-w-3xl">
+          <p class="text-sm uppercase tracking-[0.35em] text-blue-300">A solução</p>
+
+          <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">
+            Crie agentes que conversam, decidem e executam.
+          </h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-3xl glass p-6">
+            <div class="mb-6 text-3xl">💬</div>
+            <h3 class="text-xl font-bold">Atendimento 24/7</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Responda clientes, qualifique leads e reduza filas automaticamente.
+            </p>
           </div>
 
-          <p>© 2026 {BRAND.name}. Funcionários digitais para empresas modernas.</p>
+          <div class="rounded-3xl glass p-6">
+            <div class="mb-6 text-3xl">📚</div>
+            <h3 class="text-xl font-bold">Base de conhecimento</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Treine agentes com PDFs, FAQs, planilhas, documentos e processos internos.
+            </p>
+          </div>
+
+          <div class="rounded-3xl glass p-6">
+            <div class="mb-6 text-3xl">⚙️</div>
+            <h3 class="text-xl font-bold">Automação operacional</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Envie e-mails, salve leads, abra tickets, gere relatórios e acione sistemas.
+            </p>
+          </div>
+
+          <div class="rounded-3xl glass p-6">
+            <div class="mb-6 text-3xl">🛡️</div>
+            <h3 class="text-xl font-bold">Controle empresarial</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Defina permissões, limites, histórico, logs e regras para cada agente.
+            </p>
+          </div>
         </div>
-      </footer>
-    </main>
-  );
-}
+      </div>
+    </section>
+
+    <!-- CASOS -->
+    <section id="casos" class="px-6 py-20 lg:px-12">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
+        <div>
+          <p class="text-sm uppercase tracking-[0.35em] text-blue-300">Casos de uso</p>
+
+          <h2 class="mt-4 text-4xl font-black md:text-5xl">
+            Um sistema operacional para funcionários digitais.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-300">
+            Comece por atendimento e vendas. Depois expanda para financeiro, operações, onboarding, suporte interno e análise de dados.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl glass p-5">🤖 Agente de vendas</div>
+          <div class="rounded-2xl glass p-5">🤖 Agente de suporte</div>
+          <div class="rounded-2xl glass p-5">🤖 Agente financeiro</div>
+          <div class="rounded-2xl glass p-5">🤖 Agente de onboarding</div>
+          <div class="rounded-2xl glass p-5">🤖 Agente de operações</div>
+          <div class="rounded-2xl glass p-5">🤖 Agente para WhatsApp</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSOS -->
+    <section class="px-6 py-20 lg:px-12">
+      <div class="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-600/25 to-purple-600/20 p-8 md:p-12">
+        <div class="grid gap-10 lg:grid-cols-3">
+          <div>
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white font-black text-slate-950">1</div>
+            <h3 class="text-2xl font-bold">Crie</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Defina função, personalidade, objetivos e limites do agente em poucos minutos.
+            </p>
+          </div>
+
+          <div>
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white font-black text-slate-950">2</div>
+            <h3 class="text-2xl font-bold">Treine</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Conecte documentos, base de conhecimento, CRM e canais para dar contexto real.
+            </p>
+          </div>
+
+          <div>
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white font-black text-slate-950">3</div>
+            <h3 class="text-2xl font-bold">Automatize</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Coloque o agente para responder, qualificar, executar tarefas e gerar relatórios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOR -->
+    <section class="px-6 py-20 lg:px-12">
+      <div class="mx-auto max-w-5xl rounded-[2rem] border border-red-400/20 bg-red-500/10 p-8 text-center backdrop-blur-xl md:p-12">
+        <h2 class="text-4xl font-black md:text-5xl">
+          Quanto sua empresa perde por mês fazendo manualmente o que uma IA poderia executar?
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+          Cada lead sem resposta, cada atendimento atrasado e cada tarefa repetitiva custa margem, tempo e crescimento.
+        </p>
+      </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="precos" class="px-6 py-20 lg:px-12">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="text-sm uppercase tracking-[0.35em] text-blue-300">Preços</p>
+
+        <h2 class="mt-4 text-4xl font-black md:text-6xl">
+          Comece pequeno. Escale como infraestrutura.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-7xl gap-6 lg:grid-cols-3">
+        <div class="rounded-[2rem] glass p-8">
+          <h3 class="text-2xl font-bold">Starter</h3>
+          <p class="mt-3 text-slate-300">Para validar automação em um processo.</p>
+
+          <div class="mt-7">
+            <span class="text-5xl font-black">R$197</span>
+            <span class="text-slate-400">/mês</span>
+          </div>
+
+          <ul class="mt-8 space-y-4 text-slate-200">
+            <li>✅ 1 agente de IA</li>
+            <li>✅ 1.000 mensagens/mês</li>
+            <li>✅ Upload de documentos</li>
+            <li>✅ Dashboard básico</li>
+            <li>✅ Suporte inicial</li>
+          </ul>
+
+          <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-white mt-8 w-full">
+            Começar agora
+          </a>
+        </div>
+
+        <div class="rounded-[2rem] border border-blue-400 bg-blue-500/15 p-8 shadow-2xl shadow-blue-500/20">
+          <div class="mb-5 inline-flex rounded-full bg-blue-400 px-3 py-1 text-sm font-bold text-slate-950">
+            Mais vendido
+          </div>
+
+          <h3 class="text-2xl font-bold">Pro</h3>
+          <p class="mt-3 text-slate-300">Para empresas que querem escalar atendimento e vendas.</p>
+
+          <div class="mt-7">
+            <span class="text-5xl font-black">R$497</span>
+            <span class="text-slate-400">/mês</span>
+          </div>
+
+          <ul class="mt-8 space-y-4 text-slate-200">
+            <li>✅ 5 agentes de IA</li>
+            <li>✅ 10.000 mensagens/mês</li>
+            <li>✅ Integrações</li>
+            <li>✅ Histórico completo</li>
+            <li>✅ Automações avançadas</li>
+          </ul>
+
+          <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-blue mt-8 w-full">
+            Escalar com IA
+          </a>
+        </div>
+
+        <div class="rounded-[2rem] glass p-8">
+          <h3 class="text-2xl font-bold">Business</h3>
+          <p class="mt-3 text-slate-300">Para operações com múltiplos times, canais e processos.</p>
+
+          <div class="mt-7">
+            <span class="text-5xl font-black">R$1497</span>
+            <span class="text-slate-400">/mês</span>
+          </div>
+
+          <ul class="mt-8 space-y-4 text-slate-200">
+            <li>✅ Agentes ilimitados</li>
+            <li>✅ WhatsApp e CRM</li>
+            <li>✅ API empresarial</li>
+            <li>✅ Analytics avançado</li>
+            <li>✅ Suporte prioritário</li>
+          </ul>
+
+          <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-white mt-8 w-full">
+            Falar com vendas
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="px-6 py-20 lg:px-12">
+      <div class="mx-auto max-w-5xl text-center">
+        <h2 class="text-4xl font-black md:text-6xl">
+          O próximo funcionário da sua empresa será IA.
+        </h2>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          Automatize atendimento, vendas e operações com agentes inteligentes. Construa uma empresa mais rápida, enxuta e escalável.
+        </p>
+
+        <a href="https://wa.me/5594999807821" target="_blank" class="btn btn-blue mt-9">
+          Criar meu funcionário IA →
+        </a>
+      </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <section class="px-6 pb-10 lg:px-12">
+      <div class="mx-auto max-w-5xl rounded-[2rem] border border-green-400/20 bg-green-500/10 p-8 text-center backdrop-blur-xl">
+        <h3 class="text-3xl font-black text-white md:text-4xl">
+          Fale diretamente no WhatsApp
+        </h3>
+
+        <p class="mt-4 text-lg text-slate-300">
+          Tire dúvidas, veja demonstrações e implemente agentes de IA na sua empresa.
+        </p>
+
+        <a href="https://wa.me/5594999807821" target="_blank" class="mt-7 inline-flex items-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-bold text-white shadow-lg transition hover:bg-green-400">
+          WhatsApp: +55 94 99980-7821
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 px-6 py-8 lg:px-12">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-slate-400 md:flex-row">
+        <div class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500">
+            🧠
+          </div>
+          <span class="font-semibold text-white">OPERA AI</span>
+        </div>
+
+        <p>© 2026 OPERA AI. Funcionários digitais para empresas modernas.</p>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>
